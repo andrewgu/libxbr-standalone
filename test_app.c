@@ -1,3 +1,11 @@
+/**
+ * Licensed under LGPL v2.1
+ * Copyright (c) 2015 Treeki <treeki@gmail.com>
+ *
+ * Modified to use secure variant of fopen_s
+ * Copyright (c) 2020 Andrew Gu <mykonian@gmail.com>
+*/
+
 #include "filters.h"
 #include <png.h>
 #include <stdio.h>
