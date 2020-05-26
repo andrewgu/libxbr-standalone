@@ -18,6 +18,7 @@ int main(int argc, char **argv) {
 	int i;
 	xbr_data *xbrData;
 	xbr_params xbrParams;
+	errno_t err;
 
 	if (argc != 4) {
 		printf("Usage: %s [input.png] [output.png] [xbr2x|xbr3x|xbr4x|hq2x|hq3x|hq4x]\n", argv[0]);
@@ -43,8 +44,9 @@ int main(int argc, char **argv) {
 
 
 	/* Try to read input file */
-	fp = fopen(argv[1], "rb");
-	if (!fp) {
+	err = 0;
+	err = fopen_s(&fp, argv[1], "rb");
+	if (err != 0) {
 		printf("Could not open input file\n");
 		return EXIT_FAILURE;
 	}
@@ -93,6 +95,7 @@ int main(int argc, char **argv) {
 
 	png_destroy_read_struct(&png, &info, NULL);
 	fclose(fp);
+	fp = NULL;
 
 
 	/* CONVERT IT! */
@@ -125,8 +128,9 @@ int main(int argc, char **argv) {
 
 
 	/* Generate a new PNG */
-	fp = fopen(argv[2], "wb");
-	if (!fp) {
+	err = 0;
+	err = fopen_s(&fp, argv[2], "wb");
+	if (err != 0) {
 		printf("Could not open output file for writing\n");
 		return EXIT_FAILURE;
 	}

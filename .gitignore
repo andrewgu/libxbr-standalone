@@ -1,0 +1,8 @@
+/vs2012/packages/*
+/vs2012/Debug/*
+/vs2012/Release/*
+/vs2012/x64/*
+/InterpTool/Debug/*
+/InterpTool/Release/*
+/InterpTool/x64/*
+/vs2012/.vs/*
